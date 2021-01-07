@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#root {
+  height: 100vh;
+  background-color: black;
+  color: white;
+}
+
+#root h1 {
+  font-family: "Londrina Outline", cursive;
+  font-size: 8em;
+  text-shadow: 0 8px 2px red, 0 10px 2px blue;
+}
+
+.white {
+  color: white;
+  text-shadow: none;
+}
+
+.box {
+  height: 150px;
+  width: 150px;
+  grid-area: "box";
+}
+
+.box button {
+  height: 150px;
+  width: 150px;
+  background-color: transparent;
+  color: white;
+  font-size: 6em;
+  font-family: "Acme", sans-serif;
+  outline: none;
+}
+
+.box button:focus {
+  outline: none;
+}
+
+.background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 450px;
+  width: 450px;
+  display: grid;
+  grid-template: "box box box";
+}
+
+.red {
+  text-shadow: 0 0 5px #ea1136, 0 0 50px#ea1136, 0 0 100px #ea1136,
+    0 0 200px #ea1136, 0 0 500px #ea1136 !important;
+}
+
+.blue {
+  text-shadow: 0 0 5px #1210d9, 0 0 50px #1210d9, 0 0 100px #1210d9,
+    0 0 200px #1210d9, 0 0 500px #1210d9 !important;
+}
