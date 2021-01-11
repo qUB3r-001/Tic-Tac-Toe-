@@ -1,16 +1,13 @@
 import Button from "@material-ui/core/Button";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 
-function Play() {
+function Play(props) {
   return (
     <Button
       variant="contained"
       color="primary"
-      disableElevation
-      style={{
-        width: "100px",
-        height: "50px",
-      }}
+      size="large"
+      onClick={props.handleToggle}
     >
       <PlayArrowIcon />
     </Button>

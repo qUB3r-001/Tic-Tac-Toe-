@@ -1,15 +1,21 @@
-import Play from "./Play";
+import { logDOM } from "@testing-library/react";
+import React from "react";
+// import Play from "./Play";
 
-function Stats({ heading, headingStyle, winner, draw, xTurn }) {
+function Stats({ heading, headingStyle, winner, draw, xTurn, mode }) {
   return (
-    <div className="col-6 pt-5 text-center">
+    <React.Fragment>
       <h1 className={headingStyle}>{heading}</h1>
       <h2 className="text-center mt-5">
-        Player :{" "}
-        {winner === null && draw === false ? (xTurn ? "X" : "O") : "--"}
+        {winner === null && draw === false
+          ? xTurn
+            ? "Player : X"
+            : "Player : O"
+          : "GAME OVER"}
       </h2>
-      <Play />
-    </div>
+      <h2 className="text-center mt-5">{mode}</h2>
+      {/* <Play /> */}
+    </React.Fragment>
   );
 }
 
