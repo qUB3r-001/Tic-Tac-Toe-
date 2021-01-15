@@ -76,3 +76,39 @@
 .blueO {
   text-shadow: 5px 5px 0px #1210d9 !important;
 }
+
+.play-buttons-r {
+  width: 220px;
+  height: 80px;
+  font-size: 1.2em !important;
+  border-radius: 40px !important;
+  background-color: #ea1136 !important;
+  opacity: 0.6;
+}
+
+.play-buttons-b {
+  width: 220px;
+  height: 80px;
+  font-size: 1.2em !important;
+  border-radius: 40px !important;
+  background-color: #1210d9 !important;
+  opacity: 0.6;
+}
+.play-buttons-r:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 5px 5px 2px #660717 !important;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.play-buttons-b:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 5px 5px 2px #080757 !important;
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.play-buttons-r,
+.play-buttons-b {
+  outline: 0 !important;
+}

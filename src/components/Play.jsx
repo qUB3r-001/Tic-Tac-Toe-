@@ -1,5 +1,7 @@
+import React from "react";
 import Button from "@material-ui/core/Button";
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import FaceIcon from "@material-ui/icons/Face";
+import ComputerIcon from "@material-ui/icons/Computer";
 
 function Play(props) {
   return (
@@ -8,10 +10,23 @@ function Play(props) {
       color="primary"
       size="large"
       onClick={props.handleToggle}
-      className="mx-2"
+      className={`mx-4 ${
+        props.type === "1v1" ? "play-buttons-r" : "play-buttons-b"
+      }`}
     >
-      {props.type}
-      <PlayArrowIcon />
+      {props.type === "1v1" ? (
+        <React.Fragment>
+          <FaceIcon fontSize="large" />
+          <span className="mx-2">Vs</span>
+          <FaceIcon fontSize="large" />
+        </React.Fragment>
+      ) : (
+        <React.Fragment>
+          <FaceIcon fontSize="large" />
+          <span className="mx-2">Vs</span>
+          <ComputerIcon fontSize="large" />
+        </React.Fragment>
+      )}
     </Button>
   );
 }

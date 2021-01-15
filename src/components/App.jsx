@@ -32,7 +32,7 @@ function App1v1() {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-6 pt-5 text-center">
+        <div className="col-6 pt-5">
           <Stats
             heading={heading}
             headingStyle={headingStyle}
