@@ -8,7 +8,9 @@ function Play(props) {
       color="primary"
       size="large"
       onClick={props.handleToggle}
+      className="mx-2"
     >
+      {props.type}
       <PlayArrowIcon />
     </Button>
   );
