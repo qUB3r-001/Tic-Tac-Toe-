@@ -83,7 +83,7 @@
   font-size: 1.2em !important;
   border-radius: 40px !important;
   background-color: #ea1136 !important;
-  opacity: 0.6;
+  opacity: 1;
 }
 
 .play-buttons-b {
@@ -92,7 +92,7 @@
   font-size: 1.2em !important;
   border-radius: 40px !important;
   background-color: #1210d9 !important;
-  opacity: 0.6;
+  opacity: 1;
 }
 .play-buttons-r:hover {
   transform: scale(1.1) !important;

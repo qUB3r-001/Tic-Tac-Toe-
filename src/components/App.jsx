@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Box from "./Box";
 import Stats from "./Stats";
 import { calculateWinner, checkDraw } from "../winner";
@@ -54,11 +54,13 @@ function App1v1() {
   );
 }
 
-/////////////////////////// 1 V bot (random)///////////////////////
+/////////////////////// 1 V bot (random)///////////////////////
 function AppAi() {
   const [board, setBoard] = useState(Array(9).fill(null));
+
+  //   ["X", "O","O",null, "X",null, null,null,"O"]     Array(9).fill(null)
   const [xTurn, setXTurn] = useState(false);
-  const [compTurn, setCompTurn] = useState(false);
+  const [compTurn, setCompTurn] = useState(true);
   const winner = calculateWinner(board);
   const draw = checkDraw(board);
   const headingStyle = `text-center ${
@@ -67,36 +69,86 @@ function AppAi() {
   const heading =
     winner === null ? (draw ? "Draw" : "Tic-Tac-Toe") : "Won " + winner;
 
-  function onDraw(id) {
-    if (board[id] === null) {
-      setBoard((curBoard) => {
-        return winner === null
-          ? [
-              ...curBoard.slice(0, id),
-              xTurn ? "X" : "O",
-              ...curBoard.slice(id + 1),
-            ]
-          : curBoard;
-      });
-      setXTurn((currXTurn) => !currXTurn);
-      setCompTurn((currCompTurn) => !currCompTurn);
-    }
-  }
+  const onDraw = useCallback(
+    (id) => {
+      if (board[id] === null) {
+        setBoard((curBoard) => {
+          return winner === null
+            ? [
+                ...curBoard.slice(0, id),
+                xTurn ? "X" : "O",
+                ...curBoard.slice(id + 1),
+              ]
+            : curBoard;
+        });
+        setXTurn((currXTurn) => !currXTurn);
+        setCompTurn((currCompTurn) => !currCompTurn);
+      }
+    },
+    [board, winner, xTurn]
+  );
 
   useEffect(() => {
-    const newOutput = board.map((box, index) => {
-      return box === null ? index : -1;
-    });
-    const possiblePlay = newOutput.filter((output) => {
-      return output !== -1;
-    });
-    const compId =
-      possiblePlay[Math.floor(Math.random() * possiblePlay.length)];
+    function makeMove(currboard, index, player) {
+      const tempBoard = [
+        ...currboard.slice(0, index),
+        player ? "X" : "O",
+        ...currboard.slice(index + 1),
+      ];
+      return tempBoard;
+    }
+
+    function Aimove(currboard, player) {
+      let score;
+      let bestMove;
+      let testwinner = calculateWinner(currboard);
+      let testdraw = checkDraw(currboard);
+      if (testwinner || testdraw) {
+        if (testwinner === "O") score = 10;
+        else if (testwinner === "X") score = -10;
+        else score = 0;
+        return score;
+      } else {
+        score = 0;
+      }
+
+      if (!player) {
+        let maxScore = -Infinity;
+        let copyBoard = [...currboard];
+        for (let i = 0; i < 9; i++) {
+          if (copyBoard[i] === null) {
+            copyBoard = makeMove(copyBoard, i, player);
+            score = Aimove(copyBoard, !player);
+            if (score > maxScore) {
+              maxScore = score;
+              bestMove = i;
+            }
+          }
+        }
+        console.log(bestMove);
+        return bestMove;
+      } else {
+        let maxScore = Infinity;
+        let copyBoard = [...currboard];
+        for (let i = 0; i < 9; i++) {
+          if (copyBoard[i] === null) {
+            copyBoard = makeMove(copyBoard, i, player);
+            score = Aimove(copyBoard, !player);
+            if (score < maxScore) {
+              maxScore = score;
+              bestMove = i;
+            }
+          }
+        }
+        // console.log(bestMove);
+        return bestMove;
+      }
+    }
 
     if (compTurn) {
-      onDraw(compId);
+      onDraw(Aimove(board, xTurn));
     }
-  });
+  }, [board, xTurn, compTurn, onDraw]);
 
   return (
     <div className="container-fluid">
@@ -123,60 +175,4 @@ function AppAi() {
   );
 }
 
-////////////////////////////// 1 v AiP //////////////////////////////////
-function AppAiP() {
-  const [board, setBoard] = useState(Array(9).fill(null));
-  const [xTurn, setXTurn] = useState(false);
-  const [compTurn, setCompTurn] = useState(false);
-  const winner = calculateWinner(board);
-  const draw = checkDraw(board);
-  const headingStyle = `text-center ${
-    winner !== null ? (winner === "X" ? "redX" : "blueO") : null
-  }`;
-  const heading =
-    winner === null ? (draw ? "Draw" : "Tic-Tac-Toe") : "Won " + winner;
-
-  function onDraw(id) {
-    if (board[id] === null) {
-      setBoard((curBoard) => {
-        return winner === null
-          ? [
-              ...curBoard.slice(0, id),
-              xTurn ? "X" : "O",
-              ...curBoard.slice(id + 1),
-            ]
-          : curBoard;
-      });
-      setXTurn((currXTurn) => !currXTurn);
-      setCompTurn((currCompTurn) => !currCompTurn);
-    }
-  }
-
-  useEffect(() => {}); ///////////implement the bot turn call function
-
-  return (
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col-6 pt-5 text-center">
-          <Stats
-            heading={heading}
-            headingStyle={headingStyle}
-            winner={winner}
-            draw={draw}
-            xTurn={xTurn}
-            mode="Player Vs Bot"
-          />
-        </div>
-        <div className="col-6">
-          <div className="background">
-            {board.map((curBox, i) => (
-              <Box key={i} id={i} onClick={onDraw} value={curBox} />
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export { App1v1, AppAi, AppAiP };
+export { App1v1, AppAi };
