@@ -89,66 +89,70 @@ function AppAi() {
   );
 
   useEffect(() => {
-    function makeMove(currboard, index, player) {
-      const tempBoard = [
-        ...currboard.slice(0, index),
-        player ? "X" : "O",
-        ...currboard.slice(index + 1),
-      ];
-      return tempBoard;
-    }
-
-    function Aimove(currboard, player) {
-      let score;
-      let bestMove;
-      let testwinner = calculateWinner(currboard);
-      let testdraw = checkDraw(currboard);
+    function Aimove(board, player, depth) {
+      let testwinner = calculateWinner(board);
+      let testdraw = checkDraw(board);
       if (testwinner || testdraw) {
-        if (testwinner === "O") score = 10;
-        else if (testwinner === "X") score = -10;
-        else score = 0;
+        let score;
+        if (testwinner === "O") {
+          score = 10;
+        } else if (testwinner === "X") {
+          score = -10;
+        } else {
+          score = 0;
+        }
         return score;
-      } else {
-        score = 0;
       }
 
-      if (!player) {
-        let maxScore = -Infinity;
-        let copyBoard = [...currboard];
+      if (player) {
+        let bestScore = -Infinity;
         for (let i = 0; i < 9; i++) {
-          if (copyBoard[i] === null) {
-            copyBoard = makeMove(copyBoard, i, player);
-            score = Aimove(copyBoard, !player);
-            if (score > maxScore) {
-              maxScore = score;
-              bestMove = i;
+          if (board[i] === null) {
+            let copyBoard = board;
+            copyBoard[i] = "O";
+            let score = Aimove(copyBoard, !player, depth + 1);
+            copyBoard[i] = null;
+            if (score > bestScore) {
+              bestScore = score;
             }
           }
         }
-        console.log(bestMove);
-        return bestMove;
+        return bestScore;
       } else {
-        let maxScore = Infinity;
-        let copyBoard = [...currboard];
+        let bestScore = Infinity;
         for (let i = 0; i < 9; i++) {
-          if (copyBoard[i] === null) {
-            copyBoard = makeMove(copyBoard, i, player);
-            score = Aimove(copyBoard, !player);
-            if (score < maxScore) {
-              maxScore = score;
-              bestMove = i;
+          if (board[i] === null) {
+            let copyBoard = board;
+            copyBoard[i] = "X";
+            let score = Aimove(copyBoard, !player, depth + 1);
+            copyBoard[i] = null;
+            if (score < bestScore) {
+              bestScore = score;
             }
           }
         }
-        // console.log(bestMove);
-        return bestMove;
+        return bestScore;
       }
     }
 
     if (compTurn) {
-      onDraw(Aimove(board, xTurn));
+      let bestScore = -Infinity;
+      let bestMove;
+      for (let i = 0; i < 9; i++) {
+        if (board[i] === null) {
+          let copyBoard = board;
+          copyBoard[i] = "O";
+          let score = Aimove(copyBoard, xTurn, 0);
+          copyBoard[i] = null;
+          if (score > bestScore) {
+            bestScore = score;
+            bestMove = i;
+          }
+        }
+      }
+      onDraw(bestMove);
     }
-  }, [board, xTurn, compTurn, onDraw]);
+  });
 
   return (
     <div className="container-fluid">
