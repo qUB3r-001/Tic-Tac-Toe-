@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import Box from "./Box";
+import Board from "./Board";
 import Stats from "./Stats";
 import { calculateWinner, checkDraw } from "../winner";
 //////////////   1 V 1 /////////////////////
@@ -42,13 +42,7 @@ function App1v1() {
             mode="1 V 1"
           />
         </div>
-        <div className="col-6">
-          <div className="background">
-            {board.map((curBox, i) => (
-              <Box key={i} id={i} onClick={onClick} value={curBox} />
-            ))}
-          </div>
-        </div>
+        <Board board={board} onDraw={onClick} curBox={xTurn} />
       </div>
     </div>
   );
@@ -95,9 +89,9 @@ function AppAi() {
       if (testwinner || testdraw) {
         let score;
         if (testwinner === "O") {
-          score = 10;
+          score = 10 - depth;
         } else if (testwinner === "X") {
-          score = -10;
+          score = depth - 10;
         } else {
           score = 0;
         }
@@ -138,21 +132,24 @@ function AppAi() {
     if (compTurn) {
       let bestScore = -Infinity;
       let bestMove;
+      let scores = [];
       for (let i = 0; i < 9; i++) {
         if (board[i] === null) {
           let copyBoard = board;
           copyBoard[i] = "O";
           let score = Aimove(copyBoard, xTurn, 0);
           copyBoard[i] = null;
+          scores.push(score);
           if (score > bestScore) {
             bestScore = score;
             bestMove = i;
           }
         }
       }
+      console.log(scores, bestMove);
       onDraw(bestMove);
     }
-  });
+  }, [board, compTurn, onDraw, xTurn]);
 
   return (
     <div className="container-fluid">
@@ -167,13 +164,7 @@ function AppAi() {
             mode="Player Vs Bot"
           />
         </div>
-        <div className="col-6">
-          <div className="background">
-            {board.map((curBox, i) => (
-              <Box key={i} id={i} onClick={onDraw} value={curBox} />
-            ))}
-          </div>
-        </div>
+        <Board board={board} onDraw={onDraw} curBox={xTurn} />
       </div>
     </div>
   );

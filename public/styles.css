@@ -3,23 +3,29 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 #root {
   height: 100vh;
-  background-color: black;
-  color: white;
+  background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/ps-neutral.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  color: black;
 }
 
 #root h1 {
-  font-family: "Potta One", cursive;
+  font-family: "Yusei Magic", sans-serif;
   font-size: 6em;
-  text-shadow: 5px 5px 0px red, 8px 8px 0px blue;
+  /* text-shadow: 5px 5px 0px red, 8px 8px 0px blue; */
 }
 
 .board {
+  background-color: white;
+  width: 90% !important;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 3px 3px 10px grey;
 }
 
 .white {
@@ -37,17 +43,37 @@
   height: 150px;
   width: 150px;
   background-color: transparent;
-  color: white;
+  color: black;
   font-size: 6em;
   font-family: "Acme", sans-serif;
   outline: none;
-  border: 1px solid white !important;
+  /* border: 0px solid black !important; */
 }
 
 .box button:focus {
   outline: none;
 }
 
+.playing-board {
+  position: absolute;
+  z-index: -1;
+}
+.h-blocks {
+  position: absolute;
+  height: 150px;
+  width: 450px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-top: 150px;
+}
+.v-blocks {
+  position: absolute;
+  height: 450px;
+  width: 150px;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  margin-left: 150px;
+}
 .background {
   position: relative;
   top: 50%;
@@ -60,21 +86,25 @@
 }
 
 .red {
-  text-shadow: 0 0 5px #ea1136, 0 0 50px#ea1136, 0 0 100px #ea1136,
-    0 0 200px #ea1136, 0 0 500px #ea1136 !important;
+  /* text-shadow: 0 0 5px #ea1136, 0 0 50px#ea1136, 0 0 100px #ea1136,
+    0 0 200px #ea1136, 0 0 500px #ea1136 !important; */
+  color: #ff1439 !important;
 }
 
 .blue {
-  text-shadow: 0 0 5px #1210d9, 0 0 50px #1210d9, 0 0 100px #1210d9,
-    0 0 200px #1210d9, 0 0 500px #1210d9 !important;
+  /* text-shadow: 0 0 5px #1210d9, 0 0 50px #1210d9, 0 0 100px #1210d9,
+    0 0 200px #1210d9, 0 0 500px #1210d9 !important; */
+  color: #27b376 !important;
 }
 
 .redX {
-  text-shadow: 5px 5px 0px #ea1136 !important;
+  /* text-shadow: 5px 5px 0px #ea1136 !important; */
+  color: #ff1439 !important;
 }
 
 .blueO {
-  text-shadow: 5px 5px 0px #1210d9 !important;
+  /* text-shadow: 5px 5px 0px #1210d9 !important; */
+  color: #27b376 !important;
 }
 
 .play-buttons-r {
@@ -82,7 +112,7 @@
   height: 80px;
   font-size: 1.2em !important;
   border-radius: 40px !important;
-  background-color: #ea1136 !important;
+  /* background-color: #ea1136 !important; */
   opacity: 1;
 }
 
@@ -91,10 +121,10 @@
   height: 80px;
   font-size: 1.2em !important;
   border-radius: 40px !important;
-  background-color: #1210d9 !important;
+  /* background-color: #1210d9 !important; */
   opacity: 1;
 }
-.play-buttons-r:hover {
+/* .play-buttons-r:hover {
   transform: scale(1.1) !important;
   box-shadow: 5px 5px 2px #660717 !important;
   opacity: 1;
@@ -106,7 +136,7 @@
   box-shadow: 5px 5px 2px #080757 !important;
   opacity: 1;
   transition: 0.5s;
-}
+} */
 
 .play-buttons-r,
 .play-buttons-b {

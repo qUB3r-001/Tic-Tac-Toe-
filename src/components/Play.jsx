@@ -7,7 +7,6 @@ function Play(props) {
   return (
     <Button
       variant="contained"
-      color="primary"
       size="large"
       onClick={props.handleToggle}
       className={`mx-4 ${
