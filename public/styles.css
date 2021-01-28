@@ -18,6 +18,18 @@
   /* text-shadow: 5px 5px 0px red, 8px 8px 0px blue; */
 }
 
+#root h2 {
+  font-family: "Yusei Magic", sans-serif;
+}
+
+.font {
+  font-family: "Yusei Magic", sans-serif;
+}
+
+.mode {
+  font-size: 2.5em !important;
+}
+
 .board {
   background-color: white;
   width: 90% !important;
@@ -54,6 +66,10 @@
   outline: none;
 }
 
+.standard button:focus {
+  outline: none !important;
+}
+
 .playing-board {
   position: absolute;
   z-index: -1;
@@ -85,6 +101,17 @@
   grid-template: "box box box";
 }
 
+.reset:focus {
+  outline: none !important;
+}
+
+.info {
+  background-color: #fafafa;
+  height: 200px;
+  width: 200px;
+  border-radius: 20px;
+}
+
 .red {
   /* text-shadow: 0 0 5px #ea1136, 0 0 50px#ea1136, 0 0 100px #ea1136,
     0 0 200px #ea1136, 0 0 500px #ea1136 !important; */
@@ -108,8 +135,8 @@
 }
 
 .play-buttons-r {
-  width: 220px;
-  height: 80px;
+  width: 180px;
+  height: 70px;
   font-size: 1.2em !important;
   border-radius: 40px !important;
   /* background-color: #ea1136 !important; */
@@ -117,8 +144,8 @@
 }
 
 .play-buttons-b {
-  width: 220px;
-  height: 80px;
+  width: 180px;
+  height: 70px;
   font-size: 1.2em !important;
   border-radius: 40px !important;
   /* background-color: #1210d9 !important; */

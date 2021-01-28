@@ -1,5 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Game from "./components/Game";
+import Tictactoe from "./interface/Tictactoe";
 
-ReactDOM.render(<Game />, document.getElementById("root"));
+ReactDOM.render(<Tictactoe />, document.getElementById("root"));

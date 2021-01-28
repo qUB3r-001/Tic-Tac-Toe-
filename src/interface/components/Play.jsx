@@ -7,7 +7,6 @@ function Play(props) {
   return (
     <Button
       variant="contained"
-      size="large"
       onClick={props.handleToggle}
       className={`mx-4 ${
         props.type === "1v1" ? "play-buttons-r" : "play-buttons-b"
@@ -16,13 +15,13 @@ function Play(props) {
       {props.type === "1v1" ? (
         <React.Fragment>
           <FaceIcon fontSize="large" />
-          <span className="mx-2">Vs</span>
+          <span className="mx-2 font">Vs</span>
           <FaceIcon fontSize="large" />
         </React.Fragment>
       ) : (
         <React.Fragment>
           <FaceIcon fontSize="large" />
-          <span className="mx-2">Vs</span>
+          <span className="mx-2 font">Vs</span>
           <ComputerIcon fontSize="large" />
         </React.Fragment>
       )}
