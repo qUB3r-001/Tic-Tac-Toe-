@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 // import Play from "./Play";
 import Fab from "@material-ui/core/Fab";
 import ReplayIcon from "@material-ui/icons/Replay";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 
 function Stats({ heading, headingStyle, winner, draw, xTurn, mode, reset }) {
+  const [style, setStyle] = useState(false);
+
   return (
     <React.Fragment>
       <h1 className={headingStyle}>{heading}</h1>
       <h2 className="mode text-center">{mode}</h2>
-      <div className="row mt-5">
+      <div className="row mt-4">
         <div className="col-6 text-center px-0">
-          <h2 className={`mt-3`}>
+          <h2 className={`player-stat`}>
             Player:{" "}
             {winner === null && draw === false
               ? xTurn
@@ -26,7 +28,13 @@ function Stats({ heading, headingStyle, winner, draw, xTurn, mode, reset }) {
           )}
         </div>
         <div className="col-6">
-          <HelpOutlineIcon />
+          <HelpOutlineIcon
+            onClick={() => {
+              setStyle((currStyle) => !currStyle);
+            }}
+            className="help-button"
+          />
+          <div className={`info ${style ? "show" : "hide"}`}></div>
         </div>
       </div>
 
