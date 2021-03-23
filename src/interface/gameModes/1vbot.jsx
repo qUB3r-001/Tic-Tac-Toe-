@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Board from "../components/Board";
 import Stats from "../components/Stats";
 import { calculateWinner, checkDraw } from "../../logics/winner";
@@ -15,6 +15,7 @@ function AppAi() {
   }`;
   const heading =
     winner === null ? (draw ? "Draw" : "Tic-Tac-Toe") : "Won " + winner;
+  let optimumMove = useRef(0);
 
   const onDraw = useCallback(
     (id) => {
@@ -30,6 +31,7 @@ function AppAi() {
         });
         setXTurn((currXTurn) => !currXTurn);
         setCompTurn((currCompTurn) => !currCompTurn);
+        optimumMove.current = id;
       }
     },
     [board, winner, xTurn]
@@ -76,6 +78,7 @@ function AppAi() {
             xTurn={xTurn}
             mode="Player Vs Bot"
             reset={resetGame}
+            botMove={optimumMove.current}
           />
         </div>
         <Board board={board} onDraw={onDraw} curBox={xTurn} />

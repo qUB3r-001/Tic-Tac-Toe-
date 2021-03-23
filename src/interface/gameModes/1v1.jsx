@@ -2,6 +2,7 @@ import { useState } from "react";
 import Board from "../components/Board";
 import Stats from "../components/Stats";
 import { calculateWinner, checkDraw } from "../../logics/winner";
+import Aimove from "../../logics/Aimove";
 
 function App1v1() {
   const [board, setBoard] = useState(Array(9).fill(null));
@@ -34,6 +35,30 @@ function App1v1() {
     setXTurn(false);
   }
 
+  function bestOMove() {
+    if (!xTurn) {
+      let bestScore = -Infinity;
+      let bestMove;
+      let scores = [];
+      for (let i = 0; i < 9; i++) {
+        if (board[i] === null) {
+          let copyBoard = board;
+          copyBoard[i] = "O";
+          let score = Aimove(copyBoard, xTurn, 0);
+
+          copyBoard[i] = null;
+          scores.push(score);
+          if (score > bestScore) {
+            bestScore = score;
+            bestMove = i;
+          }
+        }
+      }
+      console.log(scores, bestMove);
+      return bestMove;
+    }
+  }
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -46,6 +71,7 @@ function App1v1() {
             xTurn={xTurn}
             mode="Player Vs Player"
             reset={resetGame}
+            botMove={bestOMove()}
           />
         </div>
         <Board board={board} onDraw={onClick} curBox={xTurn} />
