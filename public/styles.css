@@ -15,12 +15,7 @@
 #root h1 {
   font-family: "Yusei Magic", sans-serif;
   font-size: 6em;
-  /* text-shadow: 5px 5px 0px red, 8px 8px 0px blue; */
 }
-
-/* #root h2 {
-  font-family: "Yusei Magic", sans-serif;
-} */
 
 .font {
   font-family: "Yusei Magic", sans-serif;
@@ -133,47 +128,19 @@
   animation-duration: 0.5s;
 }
 
-@keyframes expand {
-  from {
-    height: 0;
-    width: 0;
-  }
-  to {
-    height: 200px;
-    width: 200px;
-  }
-}
-
-@keyframes close {
-  from {
-    height: 200px;
-    width: 200px;
-  }
-  to {
-    height: 0;
-    width: 0;
-  }
-}
-
 .red {
-  /* text-shadow: 0 0 5px #ea1136, 0 0 50px#ea1136, 0 0 100px #ea1136,
-    0 0 200px #ea1136, 0 0 500px #ea1136 !important; */
   color: #ff1439 !important;
 }
 
 .blue {
-  /* text-shadow: 0 0 5px #1210d9, 0 0 50px #1210d9, 0 0 100px #1210d9,
-    0 0 200px #1210d9, 0 0 500px #1210d9 !important; */
   color: #27b376 !important;
 }
 
 .redX {
-  /* text-shadow: 5px 5px 0px #ea1136 !important; */
   color: #ff1439 !important;
 }
 
 .blueO {
-  /* text-shadow: 5px 5px 0px #1210d9 !important; */
   color: #27b376 !important;
 }
 
@@ -182,7 +149,6 @@
   height: 70px;
   font-size: 1.2em !important;
   border-radius: 40px !important;
-  /* background-color: #ea1136 !important; */
   opacity: 1;
 }
 
@@ -191,22 +157,8 @@
   height: 70px;
   font-size: 1.2em !important;
   border-radius: 40px !important;
-  /* background-color: #1210d9 !important; */
   opacity: 1;
 }
-/* .play-buttons-r:hover {
-  transform: scale(1.1) !important;
-  box-shadow: 5px 5px 2px #660717 !important;
-  opacity: 1;
-  transition: 0.5s;
-}
-
-.play-buttons-b:hover {
-  transform: scale(1.1) !important;
-  box-shadow: 5px 5px 2px #080757 !important;
-  opacity: 1;
-  transition: 0.5s;
-} */
 
 .play-buttons-r,
 .play-buttons-b {

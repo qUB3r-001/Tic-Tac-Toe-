@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import App1v1 from "./gameModes/1v1";
-import AppAi from "./gameModes/1vbot";
-import Play from "./components/Play";
+import { App1v1, AppAi } from "./gameModes/1v1";
+import PlayButtons from "./components/PlayButtons";
 
 function Tictactoe() {
-  const [mode, setMode] = useState("2");
+  const [mode, setMode] = useState("1");
 
   function toggle1v1() {
     setMode("1");
@@ -18,8 +17,8 @@ function Tictactoe() {
     <div className="board container-fluid p-5">
       {mode === "1" ? <App1v1 /> : <AppAi />}
       <div className="text-center col-6 p-3">
-        <Play handleToggle={toggle1v1} type="1v1" />
-        <Play handleToggle={toggle1vAI} type="AI" />
+        <PlayButtons handleToggle={toggle1v1} type="1v1" />
+        <PlayButtons handleToggle={toggle1vAI} type="AI" />
       </div>
     </div>
   );

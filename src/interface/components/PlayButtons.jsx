@@ -3,7 +3,7 @@ import Button from "@material-ui/core/Button";
 import FaceIcon from "@material-ui/icons/Face";
 import ComputerIcon from "@material-ui/icons/Computer";
 
-function Play(props) {
+function PlayButtons(props) {
   return (
     <Button
       variant="contained"
@@ -29,4 +29,4 @@ function Play(props) {
   );
 }
 
-export default Play;
+export default PlayButtons;

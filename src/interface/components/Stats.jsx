@@ -1,8 +1,10 @@
-import React from "react";
-// import Play from "./Play";
+import React, { useEffect, useState } from "react";
 import Fab from "@material-ui/core/Fab";
 import ReplayIcon from "@material-ui/icons/Replay";
-// import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormControl from "@material-ui/core/FormControl";
 
 function Stats({
   heading,
@@ -13,21 +15,33 @@ function Stats({
   mode,
   reset,
   botMove,
+  playerPick,
 }) {
-  //const [style, setStyle] = useState(false);
+  const [value, setValue] = useState("X");
+
+  function playerSelect(e) {
+    setValue(e.target.value);
+  }
+
+  useEffect(() => {
+    // console.log(value);
+    if (mode === "Player Vs Player")
+      value === "X" ? playerPick(true) : playerPick(false);
+  }, [value, playerPick, mode]);
 
   return (
     <React.Fragment>
       <h1 className={headingStyle}>{heading}</h1>
-      <h2 className="mode text-center">{mode}</h2>
+      <h2 className="mode text-center">
+        {winner === null && draw === false ? mode : ""}
+      </h2>
       <div className="row mt-4">
         <div className="col-12 text-center px-0">
           <h2 className={`player-stat`}>
-            Player:{" "}
             {winner === null && draw === false
               ? xTurn
-                ? "X"
-                : "O"
+                ? " Player: X"
+                : " Player: O"
               : "GAME OVER"}
           </h2>
           {(winner || draw) && (
@@ -36,20 +50,24 @@ function Stats({
             </Fab>
           )}
         </div>
-        {/* <div className="col-6">
-          <HelpOutlineIcon
-            onClick={() => {
-              //setStyle((currStyle) => !currStyle);
-            }}
-            className="help-button"
-          />
-          <div className={`info show }`}>
-            <h4 className="text-center">Best Move (O): {botMove}</h4>
-          </div>
-        </div> */}
       </div>
-
-      {/* <Play /> */}
+      {mode === "Player Vs Player" && (
+        <div class="row mt-4">
+          <div class="col-12">
+            <FormControl component="fieldset">
+              <RadioGroup
+                aria-label="gender"
+                name="player_select"
+                onChange={playerSelect}
+                value={value}
+              >
+                <FormControlLabel value="X" control={<Radio />} label="X" />
+                <FormControlLabel value="O" control={<Radio />} label="O" />
+              </RadioGroup>
+            </FormControl>
+          </div>
+        </div>
+      )}
     </React.Fragment>
   );
 }
