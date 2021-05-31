@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { App1v1, AppAi } from "./gameModes/1v1";
+import { App1v1, AppAi } from "./interface/1v1";
 import PlayButtons from "./components/PlayButtons";
 
 function Tictactoe() {

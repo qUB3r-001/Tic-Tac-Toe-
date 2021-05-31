@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import Board from "../components/Board";
 import Stats from "../components/Stats";
-import { calculateWinner, checkDraw, Aimove } from "../../logics/winner";
+import { calculateWinner, checkDraw, Aimove } from "../logics/winner";
 
 function App1v1() {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [xTurn, setXTurn] = useState(true);
   const winner = calculateWinner(board);
   const draw = checkDraw(board);
+  const [start, setStart] = useState(false);
   const headingStyle = `text-center ${
     winner !== null ? (winner === "X" ? "redX" : "blueO") : null
   }`;
@@ -31,7 +32,8 @@ function App1v1() {
 
   function resetGame() {
     setBoard(Array(9).fill(null));
-    setXTurn(false);
+    setXTurn(true);
+    setStart(false);
   }
 
   function bestOMove() {
@@ -66,16 +68,17 @@ function App1v1() {
             heading={heading}
             headingStyle={headingStyle}
             winner={winner}
+            start={start}
+            begin={setStart}
             draw={draw}
             xTurn={xTurn}
-            playerPick={setXTurn}
             mode="Player Vs Player"
             reset={resetGame}
             botMove={bestOMove()}
           />
         </div>
         <div className="col-6">
-          <Board board={board} onDraw={onDraw} curBox={xTurn} />
+          <Board board={board} onDraw={onDraw} curBox={xTurn} start={start} />
         </div>
       </div>
     </div>
@@ -88,12 +91,12 @@ function AppAi() {
   const [compTurn, setCompTurn] = useState(true);
   const winner = calculateWinner(board);
   const draw = checkDraw(board);
+  const [start, setStart] = useState(false);
   const headingStyle = `text-center ${
     winner !== null ? (winner === "X" ? "redX" : "blueO") : null
   }`;
   const heading =
     winner === null ? (draw ? "Draw" : "Tic-Tac-Toe") : "Won " + winner;
-  let optimumMove = useRef(0);
 
   function onDraw(id) {
     if (board[id] === null) {
@@ -115,10 +118,11 @@ function AppAi() {
     setBoard(Array(9).fill(null));
     setXTurn(false);
     setCompTurn(true);
+    setStart(false);
   }
 
   useEffect(() => {
-    if (compTurn) {
+    if (start && compTurn) {
       let bestScore = -Infinity;
       let bestMove;
       let scores = [];
@@ -149,7 +153,7 @@ function AppAi() {
       setXTurn((currXTurn) => !currXTurn);
       setCompTurn((currCompTurn) => !currCompTurn);
     }
-  }, [board, compTurn, xTurn, winner]);
+  }, [board, compTurn, xTurn, winner, start]);
 
   return (
     <div className="container-fluid">
@@ -161,13 +165,14 @@ function AppAi() {
             winner={winner}
             draw={draw}
             xTurn={xTurn}
+            start={start}
+            begin={setStart}
             mode="Player Vs Bot"
             reset={resetGame}
-            botMove={optimumMove.current}
           />
         </div>
         <div className="col-6">
-          <Board board={board} onDraw={onDraw} curBox={xTurn} />
+          <Board board={board} onDraw={onDraw} curBox={xTurn} start={start} />
         </div>
       </div>
     </div>

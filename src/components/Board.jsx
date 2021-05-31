@@ -15,11 +15,11 @@ function Box({ id, onClick, value }) {
   );
 }
 
-function Board({ board, onDraw, curBox }) {
+function Board({ board, onDraw, start }) {
   return (
     <div className="background">
       {board.map((curBox, i) => (
-        <Box key={i} id={i} onClick={onDraw} value={curBox} />
+        <Box key={i} id={start ? i : null} onClick={onDraw} value={curBox} />
       ))}
       <div className="playing-board">
         <div className="v-blocks"></div>
