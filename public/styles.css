@@ -14,25 +14,22 @@
 
 #root h1 {
   font-family: "Yusei Magic", sans-serif;
-  font-size: 6em;
+  font-size: 5vw;
 }
 
-.font {
-  font-family: "Yusei Magic", sans-serif;
-}
-
-.mode {
-  font-size: 2.5em !important;
+#root h3 {
+  font-family: "Shadows Into Light", cursive;
+  font-size: 2.5vw;
 }
 
 .board {
   background-color: white;
-  width: 90% !important;
+  width: 90vw !important;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 3px 3px 10px grey;
+  box-shadow: 0 0 15px grey;
 }
 
 .white {
@@ -69,6 +66,7 @@
   position: absolute;
   z-index: -1;
 }
+
 .h-blocks {
   position: absolute;
   height: 150px;
@@ -77,6 +75,7 @@
   border-bottom: 1px solid black;
   margin-top: 150px;
 }
+
 .v-blocks {
   position: absolute;
   height: 450px;
@@ -85,11 +84,8 @@
   border-right: 1px solid black;
   margin-left: 150px;
 }
+
 .background {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   height: 450px;
   width: 450px;
   display: grid;
@@ -144,23 +140,6 @@
   color: #27b376 !important;
 }
 
-.play-buttons-r {
-  width: 180px;
-  height: 70px;
-  font-size: 1.2em !important;
-  border-radius: 40px !important;
-  opacity: 1;
-}
-
-.play-buttons-b {
-  width: 180px;
-  height: 70px;
-  font-size: 1.2em !important;
-  border-radius: 40px !important;
-  opacity: 1;
-}
-
-.play-buttons-r,
-.play-buttons-b {
+.play-button {
   outline: 0 !important;
 }
