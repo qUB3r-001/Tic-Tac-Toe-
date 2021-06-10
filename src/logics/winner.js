@@ -10,18 +10,51 @@ function calculateWinner(squares) {
     [2, 4, 6],
   ];
 
+  let winStyle = [
+    { transform: "translateY(-150px)", animation: "grow 0.5s linear forwards" },
+    { transform: "translateY(0)", animation: "grow 0.5s linear forwards" },
+    { transform: "translateY(150px)", animation: "grow 0.5s linear forwards" },
+    {
+      transformOrigin: "left",
+      transform: "translateY(-200px) translateX(50px) rotateZ(90deg)",
+      animation: "grow 0.5s linear forwards",
+    },
+    {
+      transformOrigin: "left",
+      transform: "translateY(-200px) translateX(200px) rotateZ(90deg)",
+      animation: "grow 0.5s linear forwards",
+    },
+    {
+      transformOrigin: "left",
+      transform: "translateY(-200px) translateX(350px) rotateZ(90deg)",
+      animation: "grow 0.5s linear forwards",
+    },
+    {
+      transformOrigin: "left",
+      transform:
+        "translateY(-190px) translateX(15px) rotateZ(45deg) scale(1.3)",
+      animation: "grow 0.5s linear forwards",
+    },
+    {
+      transformOrigin: "left",
+      transform:
+        "translateY(190px) translateX(15px) rotateZ(-45deg) scale(1.3)",
+      animation: "grow 0.5s linear forwards",
+    },
+  ];
+
   for (var line = 0; line < 8; line++) {
     const [a, b, c] = lines[line];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
+      return [squares[a], winStyle[line]];
     }
   }
-  return null;
+  return [null, null];
 }
 
 function checkDraw(board) {
   var count = 0;
-  let checkWinner = calculateWinner(board);
+  let checkWinner = calculateWinner(board)[0];
   if (!checkWinner) {
     for (var i = 0; i < 9; i++) {
       if (board[i] !== null) {
@@ -33,7 +66,7 @@ function checkDraw(board) {
 }
 
 function Aimove(board, player, depth) {
-  let testwinner = calculateWinner(board);
+  let testwinner = calculateWinner(board)[0];
   let testdraw = checkDraw(board);
   if (testwinner || testdraw) {
     let score;

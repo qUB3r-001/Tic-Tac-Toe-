@@ -15,15 +15,23 @@ function Box({ id, onClick, value }) {
   );
 }
 
-function Board({ board, onDraw, start }) {
+function Board({ board, onDraw, start, winnerPos, winner }) {
   return (
-    <div className="background">
-      {board.map((curBox, i) => (
-        <Box key={i} id={start ? i : null} onClick={onDraw} value={curBox} />
-      ))}
-      <div className="playing-board">
-        <div className="v-blocks"></div>
-        <div className="h-blocks"></div>
+    <div className="position-relative">
+      <div
+        className={`winning-line ${
+          winner === "X" ? "win-line-col-r" : "win-line-col-g"
+        }`}
+        style={winnerPos}
+      ></div>
+      <div className="background">
+        {board.map((curBox, i) => (
+          <Box key={i} id={start ? i : null} onClick={onDraw} value={curBox} />
+        ))}
+        <div className="playing-board">
+          <div className="v-blocks"></div>
+          <div className="h-blocks"></div>
+        </div>
       </div>
     </div>
   );

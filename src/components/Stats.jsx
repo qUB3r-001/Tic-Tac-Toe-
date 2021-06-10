@@ -7,7 +7,7 @@ function Stats({ winner, draw, start, begin, xTurn, mode, reset }) {
   const headingStyle =
     winner !== null ? (winner === "X" ? "redX" : "blueO") : null;
   const heading =
-    winner === null ? (draw ? "Draw" : "Tic-Tac-Toe") : "Won " + winner;
+    winner === null ? (draw ? "Draw" : "Tic-Tac-Toe") : winner + " Won";
 
   return (
     <div className="text-center">

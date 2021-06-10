@@ -85,6 +85,34 @@
   margin-left: 150px;
 }
 
+.winning-line {
+  position: absolute;
+  height: 2px;
+  width: 0;
+  top: 225px;
+  left: 25px;
+  transform-origin: center;
+}
+
+.win-line-col-r {
+  background-color: #ff1439;
+  box-shadow: 0 0 10px #ff1439;
+}
+
+.win-line-col-g {
+  background-color: #27b376;
+  box-shadow: 0 0 10px #27b376;
+}
+
+@keyframes grow {
+  from {
+    width: 0;
+  }
+  to {
+    width: 400px;
+  }
+}
+
 .background {
   height: 450px;
   width: 450px;

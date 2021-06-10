@@ -5,9 +5,9 @@ import { calculateWinner, checkDraw, Aimove } from "../logics/winner";
 
 function App1v1() {
   const [board, setBoard] = useState(Array(9).fill(null));
-  const [xTurn, setXTurn] = useState(true);
+  const [xTurn, setXTurn] = useState(Math.random() < 0.5 ? true : false);
   const [start, setStart] = useState(false);
-  const winner = calculateWinner(board);
+  const [winner, winnerPos] = calculateWinner(board);
   const draw = checkDraw(board);
 
   function onDraw(id) {
@@ -27,7 +27,7 @@ function App1v1() {
 
   function resetGame() {
     setBoard(Array(9).fill(null));
-    setXTurn(true);
+    setXTurn(Math.random() < 0.5 ? true : false);
     setStart(false);
   }
 
@@ -43,7 +43,14 @@ function App1v1() {
           mode="Player Vs Player"
           reset={resetGame}
         />
-        <Board board={board} onDraw={onDraw} curBox={xTurn} start={start} />
+        <Board
+          board={board}
+          onDraw={onDraw}
+          curBox={xTurn}
+          start={start}
+          winnerPos={winnerPos}
+          winner={winner}
+        />
       </div>
     </div>
   );
@@ -54,7 +61,7 @@ function AppAi() {
   const [xTurn, setXTurn] = useState(false);
   const [compTurn, setCompTurn] = useState(true);
   const [start, setStart] = useState(false);
-  const winner = calculateWinner(board);
+  const [winner, winnerPos] = calculateWinner(board);
   const draw = checkDraw(board);
 
   function onDraw(id) {
@@ -126,7 +133,14 @@ function AppAi() {
           mode="Player Vs Bot"
           reset={resetGame}
         />
-        <Board board={board} onDraw={onDraw} curBox={xTurn} start={start} />
+        <Board
+          board={board}
+          onDraw={onDraw}
+          curBox={xTurn}
+          start={start}
+          winnerPos={winnerPos}
+          winner={winner}
+        />
       </div>
     </div>
   );
