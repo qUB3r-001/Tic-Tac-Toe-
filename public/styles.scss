@@ -1,0 +1,129 @@
+$neonRed: #ff1439;
+$neonGreen: #27b376;
+$playBox: 150px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  height: 100vh;
+  background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/ps-neutral.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  color: black;
+
+  h1 {
+    font-family: "Yusei Magic", sans-serif;
+    font-size: 5vw;
+  }
+
+  h3 {
+    font-family: "Shadows Into Light", cursive;
+    font-size: 2.5vw;
+  }
+}
+
+.board {
+  background-color: white;
+  width: 90vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 15px grey;
+
+  button:focus {
+    outline: 0 !important;
+  }
+}
+
+.box {
+  height: $playBox;
+  width: $playBox;
+  grid-area: "box";
+
+  button {
+    height: $playBox;
+    width: $playBox;
+    background-color: transparent;
+    font-size: 6em;
+    font-family: "Acme", sans-serif;
+    outline: none;
+  }
+}
+
+#h-blocks {
+  position: absolute;
+  height: $playBox;
+  width: 3 * $playBox;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-top: $playBox;
+  z-index: -1;
+}
+
+#v-blocks {
+  position: absolute;
+  height: 3 * $playBox;
+  width: $playBox;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  margin-left: $playBox;
+  z-index: -1;
+}
+
+.winning-line {
+  position: absolute;
+  height: 2px;
+  width: 0;
+  top: 225px;
+  left: 25px;
+  transform-origin: center;
+}
+
+.win-line-col-r {
+  background-color: $neonRed;
+  box-shadow: 0 0 10px $neonRed;
+}
+
+.win-line-col-g {
+  background-color: $neonGreen;
+  box-shadow: 0 0 10px $neonGreen;
+}
+
+@keyframes grow {
+  from {
+    width: 0;
+  }
+  to {
+    width: 400px;
+  }
+}
+
+.background {
+  height: 3 * $playBox;
+  width: 3 * $playBox;
+  display: grid;
+  grid-template: "box box box";
+}
+
+.reset:focus {
+  outline: none !important;
+}
+
+.red {
+  color: $neonRed !important;
+}
+
+.green {
+  color: $neonGreen !important;
+}
+
+.footer-text {
+  font-size: 13px;
+  font-family: "Architects Daughter", cursive;
+  color: rgb(179, 179, 179);
+}
