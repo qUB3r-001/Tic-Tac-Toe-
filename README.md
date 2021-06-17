@@ -3,8 +3,9 @@
 Click [here](https://tic-tac-toe-001-app.herokuapp.com/) to try it now.
 
 > _If the site does not load on first attempt then either refresh_ > _the page or try again to access the link. It is because the site with_ > _low traffic on Heroku is pulled down to save server usage_
->
-> To try it locally enter the following commands in the command line -  
+
+To try it locally enter the following commands in the command line -
+
 > Make sure your system has Node.js installed
 
 ```sh
