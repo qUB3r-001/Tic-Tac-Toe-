@@ -5,34 +5,287 @@
           box-sizing: border-box;
 }
 
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
 #root {
   height: 100vh;
-  background-color: #ffffff;
-  background-image: url("https://www.transparenttextures.com/patterns/ps-neutral.png");
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  width: 100vw;
+  background-color: transparent;
   color: black;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
 }
 
 #root h1 {
-  font-family: "Yusei Magic", sans-serif;
-  font-size: 5vw;
+  font-family: "Lovelo";
+  font-size: 6vw;
 }
 
 #root h3 {
-  font-family: "Shadows Into Light", cursive;
-  font-size: 2.5vw;
+  font-family: "Yusei Magic", sans-serif;
+  font-size: 2vw;
+}
+
+.bg-wrapper {
+  background-color: cyan !important;
+  width: 100vw;
+  z-index: -100;
+}
+
+.bg-wrapper svg:nth-child(1) {
+  position: absolute;
+  bottom: -20vh;
+  z-index: -1;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  transform-box: fill-box;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  margin-left: 5vw;
+  -webkit-animation-name: up;
+          animation-name: up;
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.bg-wrapper svg:nth-child(2) {
+  position: absolute;
+  bottom: -20vh;
+  z-index: -2;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  transform-box: fill-box;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  margin-left: 14vw;
+  -webkit-animation-name: up;
+          animation-name: up;
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-delay: 10s;
+          animation-delay: 10s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.bg-wrapper svg:nth-child(3) {
+  position: absolute;
+  bottom: -20vh;
+  z-index: -3;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  transform-box: fill-box;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  margin-left: 23vw;
+  -webkit-animation-name: up;
+          animation-name: up;
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-delay: 20s;
+          animation-delay: 20s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.bg-wrapper svg:nth-child(4) {
+  position: absolute;
+  bottom: -20vh;
+  z-index: -4;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  transform-box: fill-box;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  margin-left: 32vw;
+  -webkit-animation-name: up;
+          animation-name: up;
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.bg-wrapper svg:nth-child(5) {
+  position: absolute;
+  bottom: -20vh;
+  z-index: -5;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  transform-box: fill-box;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  margin-left: 41vw;
+  -webkit-animation-name: up;
+          animation-name: up;
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-delay: 10s;
+          animation-delay: 10s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.bg-wrapper svg:nth-child(6) {
+  position: absolute;
+  bottom: -20vh;
+  z-index: -6;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  transform-box: fill-box;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  margin-left: 50vw;
+  -webkit-animation-name: up;
+          animation-name: up;
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-delay: 20s;
+          animation-delay: 20s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.bg-wrapper svg:nth-child(7) {
+  position: absolute;
+  bottom: -20vh;
+  z-index: -7;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  transform-box: fill-box;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  margin-left: 59vw;
+  -webkit-animation-name: up;
+          animation-name: up;
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.bg-wrapper svg:nth-child(8) {
+  position: absolute;
+  bottom: -20vh;
+  z-index: -8;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  transform-box: fill-box;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  margin-left: 68vw;
+  -webkit-animation-name: up;
+          animation-name: up;
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-delay: 10s;
+          animation-delay: 10s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.bg-wrapper svg:nth-child(9) {
+  position: absolute;
+  bottom: -20vh;
+  z-index: -9;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  transform-box: fill-box;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  margin-left: 77vw;
+  -webkit-animation-name: up;
+          animation-name: up;
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-delay: 20s;
+          animation-delay: 20s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.bg-wrapper svg:nth-child(10) {
+  position: absolute;
+  bottom: -20vh;
+  z-index: -10;
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  transform-box: fill-box;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  margin-left: 86vw;
+  -webkit-animation-name: up;
+          animation-name: up;
+  -webkit-animation-duration: 30s;
+          animation-duration: 30s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes up {
+  from {
+    -webkit-transform: translateY(0) rotateZ(0);
+            transform: translateY(0) rotateZ(0);
+  }
+  to {
+    -webkit-transform: translateY(-140vh) rotateZ(360deg);
+            transform: translateY(-140vh) rotateZ(360deg);
+  }
+}
+
+@keyframes up {
+  from {
+    -webkit-transform: translateY(0) rotateZ(0);
+            transform: translateY(0) rotateZ(0);
+  }
+  to {
+    -webkit-transform: translateY(-140vh) rotateZ(360deg);
+            transform: translateY(-140vh) rotateZ(360deg);
+  }
 }
 
 .board {
-  background-color: white;
-  width: 90vw;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  -webkit-box-shadow: 0 0 15px grey;
-          box-shadow: 0 0 15px grey;
+  background-color: transparent;
+  height: 100%;
+  width: 100vw;
+  z-index: 999;
 }
 
 .board button:focus {
@@ -54,12 +307,132 @@
   outline: none;
 }
 
+.blink span:nth-child(1) {
+  color: white;
+  text-shadow: 2px 2px 10px #eaeaea;
+  -webkit-animation-name: glow2;
+          animation-name: glow2;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.blink span:nth-child(2) {
+  color: white;
+  text-shadow: 2px 2px 10px #eaeaea;
+  -webkit-animation-name: glow1;
+          animation-name: glow1;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.blink span:nth-child(3) {
+  color: white;
+  text-shadow: 2px 2px 10px #eaeaea;
+  -webkit-animation-name: glow2;
+          animation-name: glow2;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.blink span:nth-child(4) {
+  color: white;
+  text-shadow: 2px 2px 10px #eaeaea;
+  -webkit-animation-name: glow1;
+          animation-name: glow1;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes glow1 {
+  0%,
+  40%,
+  60%,
+  80% {
+    color: white;
+  }
+  50%,
+  70%,
+  100% {
+    color: #21bf73;
+    text-shadow: 2px 2px 5px #21bf73;
+  }
+}
+
+@keyframes glow1 {
+  0%,
+  40%,
+  60%,
+  80% {
+    color: white;
+  }
+  50%,
+  70%,
+  100% {
+    color: #21bf73;
+    text-shadow: 2px 2px 5px #21bf73;
+  }
+}
+
+@-webkit-keyframes glow2 {
+  0%,
+  40%,
+  60%,
+  80% {
+    color: white;
+  }
+  50%,
+  70%,
+  100% {
+    color: #fd5e53;
+    text-shadow: 2px 2px 5px #fd5e53;
+  }
+}
+
+@keyframes glow2 {
+  0%,
+  40%,
+  60%,
+  80% {
+    color: white;
+  }
+  50%,
+  70%,
+  100% {
+    color: #fd5e53;
+    text-shadow: 2px 2px 5px #fd5e53;
+  }
+}
+
 #h-blocks {
   position: absolute;
   height: 150px;
   width: 450px;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
   margin-top: 150px;
   z-index: -1;
 }
@@ -68,8 +441,8 @@
   position: absolute;
   height: 450px;
   width: 150px;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
   margin-left: 150px;
   z-index: -1;
 }
@@ -85,15 +458,15 @@
 }
 
 .win-line-col-r {
-  background-color: #ff1439;
-  -webkit-box-shadow: 0 0 10px #ff1439;
-          box-shadow: 0 0 10px #ff1439;
+  background-color: #fd5e53;
+  -webkit-box-shadow: 0 0 10px #fd5e53;
+          box-shadow: 0 0 10px #fd5e53;
 }
 
 .win-line-col-g {
-  background-color: #27b376;
-  -webkit-box-shadow: 0 0 10px #27b376;
-          box-shadow: 0 0 10px #27b376;
+  background-color: #21bf73;
+  -webkit-box-shadow: 0 0 10px #21bf73;
+          box-shadow: 0 0 10px #21bf73;
 }
 
 @-webkit-keyframes grow {
@@ -127,16 +500,15 @@
 }
 
 .red {
-  color: #ff1439 !important;
+  color: #fd5e53 !important;
 }
 
 .green {
-  color: #27b376 !important;
+  color: #21bf73 !important;
 }
 
 .footer-text {
   font-size: 13px;
-  font-family: "Architects Daughter", cursive;
   color: #b3b3b3;
 }
 /*# sourceMappingURL=styles.css.map */

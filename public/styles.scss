@@ -1,5 +1,5 @@
-$neonRed: #ff1439;
-$neonGreen: #27b376;
+$neonRed: #fd5e53;
+$neonGreen: #21bf73;
 $playBox: 150px;
 
 * {
@@ -8,32 +8,85 @@ $playBox: 150px;
   box-sizing: border-box;
 }
 
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
 #root {
   height: 100vh;
-  background-color: #ffffff;
-  background-image: url("https://www.transparenttextures.com/patterns/ps-neutral.png");
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  width: 100vw;
+  background-color: transparent;
   color: black;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
 
   h1 {
-    font-family: "Yusei Magic", sans-serif;
-    font-size: 5vw;
+    font-family: "Lovelo";
+    font-size: 6vw;
   }
 
   h3 {
-    font-family: "Shadows Into Light", cursive;
-    font-size: 2.5vw;
+    font-family: "Yusei Magic", sans-serif;
+    font-size: 2vw;
+  }
+}
+
+.bg-wrapper {
+  background-color: cyan !important;
+  width: 100vw;
+  z-index: -100;
+  $time: 10;
+
+  @each $var,
+    $delay
+      in (
+        1: 0,
+        2: $time,
+        3: 2 * $time,
+        4: 0,
+        5: $time,
+        6: 2 * $time,
+        7: 0,
+        8: $time,
+        9: 2 * $time,
+        10: 0
+      )
+  {
+    svg:nth-child(#{$var}) {
+      position: absolute;
+      bottom: -20vh; //-20vh
+      z-index: -$var;
+      filter: blur(4px);
+      transform-box: fill-box;
+      transform-origin: center;
+      margin-left: (($var - 1) * 9) + 5vw; //($var - 1) * 10vw
+      animation-name: up;
+      animation-duration: 3 * $time + s; //random(10) + 20s
+      animation-timing-function: linear;
+      animation-delay: $delay + s;
+      animation-iteration-count: infinite;
+    }
+  }
+
+  @keyframes up {
+    from {
+      transform: translateY(0) rotateZ(0);
+    }
+    to {
+      transform: translateY(-140vh) rotateZ(360deg);
+    }
   }
 }
 
 .board {
-  background-color: white;
-  width: 90vw;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 15px grey;
+  background-color: transparent;
+  height: 100%;
+  width: 100vw;
+  z-index: 999;
 
   button:focus {
     outline: 0 !important;
@@ -55,12 +108,56 @@ $playBox: 150px;
   }
 }
 
+.blink {
+  @for $i from 1 through 4 {
+    span:nth-child(#{$i}) {
+      color: white;
+      text-shadow: 2px 2px 10px #eaeaea;
+      animation-name: glow + if($i%2 == 0, 1, 2);
+      animation-timing-function: linear;
+      animation-duration: 0.7s;
+      animation-delay: ($i - 1)/2 + s;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+@keyframes glow1 {
+  0%,
+  40%,
+  60%,
+  80% {
+    color: white;
+  }
+  50%,
+  70%,
+  100% {
+    color: $neonGreen;
+    text-shadow: 2px 2px 5px $neonGreen;
+  }
+}
+
+@keyframes glow2 {
+  0%,
+  40%,
+  60%,
+  80% {
+    color: white;
+  }
+  50%,
+  70%,
+  100% {
+    color: $neonRed;
+    text-shadow: 2px 2px 5px $neonRed;
+  }
+}
+
 #h-blocks {
   position: absolute;
   height: $playBox;
   width: 3 * $playBox;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
   margin-top: $playBox;
   z-index: -1;
 }
@@ -69,8 +166,8 @@ $playBox: 150px;
   position: absolute;
   height: 3 * $playBox;
   width: $playBox;
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
   margin-left: $playBox;
   z-index: -1;
 }
@@ -124,6 +221,5 @@ $playBox: 150px;
 
 .footer-text {
   font-size: 13px;
-  font-family: "Architects Daughter", cursive;
   color: rgb(179, 179, 179);
 }

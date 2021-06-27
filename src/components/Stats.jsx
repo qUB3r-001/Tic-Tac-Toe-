@@ -8,7 +8,19 @@ function Stats({ winner, draw, start, begin, xTurn, mode, reset }) {
   const headingStyle =
     winner !== null ? (winner === "X" ? "red" : "green") : null;
   const heading =
-    winner === null ? (draw ? "Draw" : "Tic-Tac-Toe") : winner + " Won";
+    winner === null ? (
+      draw ? (
+        "Draw"
+      ) : (
+        <div className="blink">
+          <span>Tic </span>
+          <span>Tac </span>
+          <span>Toe</span>
+        </div>
+      )
+    ) : (
+      winner + " Won"
+    );
   const headingInfo =
     winner === null && draw === false
       ? xTurn

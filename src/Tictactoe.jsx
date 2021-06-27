@@ -47,42 +47,272 @@ function Tictactoe() {
       : null;
 
   return (
-    <div className="board p-3">
-      {/* The component for both modes depending on which mode is selected */}
-      {mode === "1v1" ? <PvP /> : <PvBot />}
-      {/* The mode selection buttons */}
-      <div className="d-flex justify-content-center p-3">
-        <ThemeProvider theme={theme}>
-          <Button
-            variant="contained"
-            className="mx-4 play-button"
-            onClick={() => setMode((currMode) => "1v1")}
-            style={buttonStyles1v1}
-          >
-            <FaceIcon fontSize="large" />
-            VS
-            <FaceIcon fontSize="large" />
-          </Button>
-          <Button
-            variant="contained"
-            className="mx-4 play-button"
-            onClick={() => setMode((currMode) => "1vBot")}
-            style={buttonStyles1vAi}
-          >
-            <FaceIcon fontSize="large" />
-            VS
-            <ComputerIcon fontSize="large" />
-          </Button>
-        </ThemeProvider>
+    <React.Fragment>
+      <div className="bg-wrapper">
+        <svg
+          width="136"
+          height="136"
+          viewBox="0 0 136 136"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="68"
+            cy="68"
+            r="66.5"
+            fill="white"
+            stroke="#C9C9C9"
+            strokeWidth="3"
+          />
+        </svg>
+
+        <svg
+          width="138"
+          height="136"
+          viewBox="0 0 138 136"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line
+            x1="1.93934"
+            y1="134.497"
+            x2="134.497"
+            y2="1.93934"
+            stroke="#C9C9C9"
+            strokeWidth="3"
+          />
+          <line
+            x1="4.06063"
+            y1="1.93934"
+            x2="136.619"
+            y2="134.497"
+            stroke="#C9C9C9"
+            strokeWidth="3"
+          />
+        </svg>
+
+        <svg
+          width="136"
+          height="136"
+          viewBox="0 0 136 136"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="68"
+            cy="68"
+            r="66.5"
+            fill="white"
+            stroke="#C9C9C9"
+            strokeWidth="3"
+          />
+        </svg>
+
+        <svg
+          width="138"
+          height="136"
+          viewBox="0 0 138 136"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line
+            x1="1.93934"
+            y1="134.497"
+            x2="134.497"
+            y2="1.93934"
+            stroke="#C9C9C9"
+            strokeWidth="3"
+          />
+          <line
+            x1="4.06063"
+            y1="1.93934"
+            x2="136.619"
+            y2="134.497"
+            stroke="#C9C9C9"
+            strokeWidth="3"
+          />
+        </svg>
+
+        <svg
+          width="136"
+          height="136"
+          viewBox="0 0 136 136"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="68"
+            cy="68"
+            r="66.5"
+            fill="white"
+            stroke="#C9C9C9"
+            strokeWidth="3"
+          />
+        </svg>
+
+        <svg
+          width="138"
+          height="136"
+          viewBox="0 0 138 136"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line
+            x1="1.93934"
+            y1="134.497"
+            x2="134.497"
+            y2="1.93934"
+            stroke="#C9C9C9"
+            strokeWidth="3"
+          />
+          <line
+            x1="4.06063"
+            y1="1.93934"
+            x2="136.619"
+            y2="134.497"
+            stroke="#C9C9C9"
+            strokeWidth="3"
+          />
+        </svg>
+
+        <svg
+          width="136"
+          height="136"
+          viewBox="0 0 136 136"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="68"
+            cy="68"
+            r="66.5"
+            fill="white"
+            stroke="#C9C9C9"
+            strokeWidth="3"
+          />
+        </svg>
+
+        <svg
+          width="138"
+          height="136"
+          viewBox="0 0 138 136"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line
+            x1="1.93934"
+            y1="134.497"
+            x2="134.497"
+            y2="1.93934"
+            stroke="#C9C9C9"
+            strokeWidth="3"
+          />
+          <line
+            x1="4.06063"
+            y1="1.93934"
+            x2="136.619"
+            y2="134.497"
+            stroke="#C9C9C9"
+            strokeWidth="3"
+          />
+        </svg>
+
+        <svg
+          width="136"
+          height="136"
+          viewBox="0 0 136 136"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="68"
+            cy="68"
+            r="66.5"
+            fill="white"
+            stroke="#C9C9C9"
+            strokeWidth="3"
+          />
+        </svg>
+
+        <svg
+          width="138"
+          height="136"
+          viewBox="0 0 138 136"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line
+            x1="1.93934"
+            y1="134.497"
+            x2="134.497"
+            y2="1.93934"
+            stroke="#C9C9C9"
+            strokeWidth="3"
+          />
+          <line
+            x1="4.06063"
+            y1="1.93934"
+            x2="136.619"
+            y2="134.497"
+            stroke="#C9C9C9"
+            strokeWidth="3"
+          />
+        </svg>
+
+        {/* <svg
+          width="136"
+          height="136"
+          viewBox="0 0 136 136"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="68"
+            cy="68"
+            r="66.5"
+            fill="white"
+            stroke="#C9C9C9"
+            strokeWidth="3"
+          />
+        </svg> */}
       </div>
-      {/* The footer text */}
-      <div className="text-center footer-text">
-        "In 1952 the EDSAC computer had an inbuilt game called OXO - a crude
-        version of the table top classic now known as Tic-Tac-Toe making it the
-        world's first ever video game"
-        <br /> Made By - qUB3r
+      <div className="board p-3">
+        {/* The component for both modes depending on which mode is selected */}
+        {mode === "1v1" ? <PvP /> : <PvBot />}
+        {/* The mode selection buttons */}
+        <div className="d-flex justify-content-center p-3">
+          <ThemeProvider theme={theme}>
+            <Button
+              variant="contained"
+              className="mx-4 play-button"
+              onClick={() => setMode((currMode) => "1v1")}
+              style={buttonStyles1v1}
+            >
+              <FaceIcon fontSize="large" />
+              VS
+              <FaceIcon fontSize="large" />
+            </Button>
+            <Button
+              variant="contained"
+              className="mx-4 play-button"
+              onClick={() => setMode((currMode) => "1vBot")}
+              style={buttonStyles1vAi}
+            >
+              <FaceIcon fontSize="large" />
+              VS
+              <ComputerIcon fontSize="large" />
+            </Button>
+          </ThemeProvider>
+        </div>
+        {/* The footer text */}
+        <div className="text-center footer-text">
+          "In 1952 the EDSAC computer had an inbuilt game called OXO - a crude
+          version of the table top classic now known as Tic-Tac-Toe making it
+          the world's first ever video game"
+          <br /> Made By - qUB3r
+        </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 }
 
