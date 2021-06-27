@@ -18,7 +18,9 @@ npm run
 
 ## About
 
-The classic game of Tic-Tac-Toe made with React using hooks. For component styling Material-UI is used and for the rest part Bootstrap v5.0. Online version is hosted on Heroku.
+The classic game of Tic-Tac-Toe made with React using hooks. For component styling Material-UI is used and for the rest part Bootstrap v5.0. The online version is hosted on Heroku. All animations are done with SCSS only.
+
+![ss-1](./screenshots/SS1.jpg)
 
 #### Player vs Player
 
