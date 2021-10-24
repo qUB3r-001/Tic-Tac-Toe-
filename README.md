@@ -10,7 +10,7 @@ To try it locally enter the following commands in the command line -
 
 ```sh
 cd <any_directory>
-git clone https://github.com/qUB3r-001/Tic-Tac-Toe-.git
+git clone https://github.com/qUB3r-001/Tic-Tac-Toe-Game.git
 cd Tic-Tac-Toe-
 npm install
 npm run
@@ -18,7 +18,11 @@ npm run
 
 ## About
 
-The classic game of Tic-Tac-Toe made with React using hooks. For component styling Material-UI is used and for the rest part Bootstrap v5.0. The online version is hosted on Heroku. All animations are done with SCSS only.
+The classic game of Tic-Tac-Toe made with React using hooks.
+
+- Made using React.js Hooks implementation.
+- Used MUI: React Components library and Bootstrap v5.0 for all components and styling.
+- All animations are done using SCSS only.
 
 ![ss-1](./screenshots/SS1.jpg)
 
