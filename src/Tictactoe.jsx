@@ -4,6 +4,7 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import FaceIcon from "@material-ui/icons/Face";
 import ComputerIcon from "@material-ui/icons/Computer";
+import Footer from "./components/Footer";
 
 function Tictactoe() {
   //state to select gameplay mode
@@ -305,12 +306,7 @@ function Tictactoe() {
           </ThemeProvider>
         </div>
         {/* The footer text */}
-        <div className="text-center footer-text">
-          "In 1952 the EDSAC computer had an inbuilt game called OXO - a crude
-          version of the table top classic now known as Tic-Tac-Toe making it
-          the world's first ever video game"
-          <br /> Made By - qUB3r
-        </div>
+        <Footer />
       </div>
     </React.Fragment>
   );

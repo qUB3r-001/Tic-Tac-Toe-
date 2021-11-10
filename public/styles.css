@@ -508,7 +508,18 @@ body {
 }
 
 .footer-text {
-  font-size: 13px;
+  font-size: 15px;
   color: #b3b3b3;
+  font-family: "Yusei Magic", sans-serif;
+}
+
+.footer-text .MuiSvgIcon-root {
+  color: #b3b3b3;
+}
+
+.footer-text .MuiSvgIcon-root:hover {
+  color: #212529;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
 }
 /*# sourceMappingURL=styles.css.map */

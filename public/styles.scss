@@ -220,6 +220,16 @@ body {
 }
 
 .footer-text {
-  font-size: 13px;
-  color: rgb(179, 179, 179);
+  font-size: 15px;
+  color: #b3b3b3;
+  font-family: "Yusei Magic", sans-serif;
+
+  .MuiSvgIcon-root {
+    color: #b3b3b3;
+  }
+
+  .MuiSvgIcon-root:hover {
+    color: #212529;
+    transform: scale(1.5);
+  }
 }
